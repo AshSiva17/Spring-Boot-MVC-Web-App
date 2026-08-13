@@ -2,12 +2,103 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head>
-        <title>Hello World!</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>My Stats — CourtStat</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
     </head>
     <body>
-        <h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+        <header class="site-header">
+            <a class="brand" th:href="@{/hello}">
+                <span class="brand-mark">CS</span>
+                <span class="logo">CourtStat</span>
+            </a>
+            <div class="header-actions">
+                <span class="header-user" sec:authentication="name">user</span>
+                <form class="logout-form" th:action="@{/logout}" method="post">
+                    <button class="btn btn-outline" type="submit">Sign Out</button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <section class="welcome">
+                <h1>Welcome back, <span sec:authentication="name">user</span></h1>
+                <p>Season averages and recent game log <span class="badge">2025–26</span></p>
+            </section>
+            <section class="stat-grid" aria-label="Season averages">
+                <article class="stat-card">
+                    <span class="value">22.0</span>
+                    <span class="label">Points Per Game</span>
+                </article>
+                <article class="stat-card">
+                    <span class="value">8.2</span>
+                    <span class="label">Rebounds Per Game</span>
+                </article>
+                <article class="stat-card">
+                    <span class="value">5.0</span>
+                    <span class="label">Assists Per Game</span>
+                </article>
+                <article class="stat-card">
+                    <span class="value">47.3%</span>
+                    <span class="label">Field Goal %</span>
+                </article>
+            </section>
+            <section class="games">
+                <h2>Recent games</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Opponent</th>
+                                <th scope="col">Points</th>
+                                <th scope="col">Rebounds</th>
+                                <th scope="col">Assists</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mar 12, 2026</td>
+                                <td>Riverside Hawks</td>
+                                <td class="num">24</td>
+                                <td class="num">8</td>
+                                <td class="num">5</td>
+                            </tr>
+                            <tr>
+                                <td>Mar 8, 2026</td>
+                                <td>Oakridge Wolves</td>
+                                <td class="num">18</td>
+                                <td class="num">11</td>
+                                <td class="num">4</td>
+                            </tr>
+                            <tr>
+                                <td>Mar 3, 2026</td>
+                                <td>Eastview Lions</td>
+                                <td class="num">31</td>
+                                <td class="num">6</td>
+                                <td class="num">7</td>
+                            </tr>
+                            <tr>
+                                <td>Feb 26, 2026</td>
+                                <td>Hillcrest Bears</td>
+                                <td class="num">15</td>
+                                <td class="num">9</td>
+                                <td class="num">3</td>
+                            </tr>
+                            <tr>
+                                <td>Feb 21, 2026</td>
+                                <td>Northgate Falcons</td>
+                                <td class="num">22</td>
+                                <td class="num">7</td>
+                                <td class="num">6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
     </body>
 </html>

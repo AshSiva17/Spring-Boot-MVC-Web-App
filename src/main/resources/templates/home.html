@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
     <head>
-        <title>Spring Security Example</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>CourtStat</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
     </head>
     <body>
-        <h1>Welcome!</h1>
-
-        <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+        <header class="site-header">
+            <a class="brand" th:href="@{/}">
+                <span class="brand-mark">CS</span>
+                <span class="logo">CourtStat</span>
+            </a>
+            <a class="btn btn-primary" th:href="@{/hello}">Sign In</a>
+        </header>
+        <main>
+            <section class="hero">
+                <span class="eyebrow">Personal dashboard</span>
+                <h1>Track every game. Own your numbers.</h1>
+                <p>CourtStat is a basketball stats dashboard for points, rebounds, assists, and recent game logs — all in one place.</p>
+                <a class="btn btn-primary" th:href="@{/hello}">View My Stats</a>
+            </section>
+            <section class="feature-grid" aria-label="What you get">
+                <article class="feature-card">
+                    <h2>Season averages</h2>
+                    <p>PPG, RPG, APG, and field-goal percentage at a glance.</p>
+                </article>
+                <article class="feature-card">
+                    <h2>Game log</h2>
+                    <p>A clean table of recent opponents, dates, and box-score lines.</p>
+                </article>
+                <article class="feature-card">
+                    <h2>Your account</h2>
+                    <p>Sign in to see a dashboard built around your session.</p>
+                </article>
+            </section>
+        </main>
     </body>
 </html>

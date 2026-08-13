@@ -22,7 +22,7 @@ class WebSecurityConfig {
 		// @formatter:off
 		http
 			.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/", "/home").permitAll()
+				.requestMatchers("/", "/home", "/css/**").permitAll()
 				.anyRequest().authenticated()
 			)
 			.formLogin((form) -> form
