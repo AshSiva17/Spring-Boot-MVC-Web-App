@@ -46,3 +46,6 @@ application-local.properties
 application-local.yml
 .env
 .env.*
+
+### Local H2 database files ###
+/data/
